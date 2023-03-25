@@ -13,3 +13,13 @@
 ## Ideas for Later
 
 - [ ] Include light and dark mode
+
+## Docs
+
+Add notes on
+
+- Prettier
+- ESlint setup
+- Husky
+- lint-staged
+- commitlint
