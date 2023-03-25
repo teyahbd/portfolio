@@ -1,6 +1,6 @@
 # My Portfolio Site built with Vue, TypeScript and Vite
 
-My goals:
+## My Goals
 
 - [ ] Build a simple portfolio site for my projects using Vue and Vite
 - [ ] Build and use a simple CI pipeline (e.g. GitHub actions, linting and formatting)
@@ -9,3 +9,7 @@ My goals:
 - [ ] Use some fun styling
 - [ ] Introduce some API interaction (e.g. GitHub?)
 - [ ] Use branching and PRs
+
+## Ideas for Later
+
+- [ ] Include light and dark mode
