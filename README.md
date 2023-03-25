@@ -8,3 +8,4 @@ My goals:
 - [ ] Introduce front end testing (e.g. Cypress)
 - [ ] Use some fun styling
 - [ ] Introduce some API interaction (e.g. GitHub?)
+- [ ] Use branching and PRs
