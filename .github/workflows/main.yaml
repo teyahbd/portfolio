@@ -1,5 +1,5 @@
 name: Continuous Integration
-run-name: ${{ github.actor }} is running CI checks for ${{ github.event_name }} to ${{ github.event.main_branch }}!
+run-name: ${{ github.actor }} is running CI checks for ${{ github.event_name }} to main!
 
 on:
   pull_request:
