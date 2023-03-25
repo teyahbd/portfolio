@@ -3,7 +3,7 @@
 ## My Goals
 
 - [ ] Build a simple portfolio site for my projects using Vue and Vite
-- [ ] Build and use a simple CI pipeline (e.g. GitHub actions, linting and formatting)
+- [x] Build and use a simple CI pipeline (e.g. GitHub actions, precommit hook, linting and formatting)
 - [ ] Incorporate TypeScript where I can
 - [ ] Introduce front end testing (e.g. Cypress)
 - [ ] Use some fun styling
