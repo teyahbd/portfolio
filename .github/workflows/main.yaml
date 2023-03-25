@@ -1,5 +1,5 @@
 name: Continuous Integration
-run-name: ${{ github.actor }} is running CI checks!
+run-name: ${{ github.actor }} is running CI checks for ${{ github.event_name }}!
 
 on:
   pull_request:
@@ -14,15 +14,40 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Use cache in pnpm setup to reduce installation time
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          # Make sure the actual branch is checked out when running on pull requests
           ref: ${{ github.head_ref }}
-          # This is important to fetch the changes to the previous commit
           fetch-depth: 0
 
-      - name: Install
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
         run: pnpm install
 
       - name: Check formatting
