@@ -23,6 +23,7 @@
     "vite": "^4.2.0",
     "vue-tsc": "^1.2.0"
   },
+  "prettier": {},
   "lint-staged": {
     "*": "pnpm format:fix"
   }
