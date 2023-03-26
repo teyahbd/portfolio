@@ -20,5 +20,12 @@
   },
   "plugins": ["vue", "@typescript-eslint"],
   "rules": {},
-  "ignorePatterns": ["vite.config.ts", "*.html", "*.yaml", "*.md", "*.json"]
+  "ignorePatterns": [
+    "vite.config.ts",
+    "*.html",
+    "*.yaml",
+    "*.md",
+    "*.json",
+    "*.css"
+  ]
 }
