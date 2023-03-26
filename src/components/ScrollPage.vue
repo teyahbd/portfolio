@@ -3,7 +3,7 @@
     class="page-container"
     v-if="props.page === 'page 1'"
     :style="{
-      'background-image': `linear-gradient(${props.theme['secondary-background-color']}, ${props.theme['primary-background-color']})`,
+      'background-image': firstPageBackground,
       color: props.theme['font-color'],
     }"
   >
@@ -22,13 +22,39 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from "vue";
+import { defineProps, ref, onMounted, onUnmounted } from "vue";
 import { Theme } from "../store/theme";
 
 const props = defineProps<{
   page: string;
   theme: Theme;
 }>();
+
+function setFirstPageBackground() {
+  let backgroundStr = "linear-gradient(";
+
+  if (screen.width <= 768) backgroundStr += ".25turn, ";
+
+  backgroundStr += `${props.theme["secondary-background-color"]}, ${props.theme["primary-background-color"]})`;
+
+  return backgroundStr;
+}
+
+const firstPageBackground = ref(setFirstPageBackground());
+
+onMounted(() => {
+  window.addEventListener(
+    "resize",
+    () => (firstPageBackground.value = setFirstPageBackground())
+  );
+});
+
+onUnmounted(() => {
+  window.removeEventListener(
+    "resize",
+    () => (firstPageBackground.value = setFirstPageBackground())
+  );
+});
 </script>
 
 <style scoped>
