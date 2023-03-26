@@ -15,7 +15,17 @@ const pages: string[] = ["page 1", "page 2", "page 3"];
   width: 100%;
   height: 100%;
   border: 1px solid red;
-  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
   scroll-snap-type: y mandatory;
+}
+
+@media only screen and (max-width: 768px) {
+  .scroll-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    flex-direction: row;
+  }
 }
 </style>

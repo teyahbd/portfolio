@@ -14,9 +14,10 @@ const props = defineProps<{
 
 <style scoped>
 .page-container {
-  height: 100vh;
+  min-height: 100vh;
   border: 1px dashed blue;
-  width: 100%;
+  min-width: 100vw;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 </style>
