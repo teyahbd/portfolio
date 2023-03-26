@@ -1,7 +1,7 @@
 <template>
-  <div class="page-container">
+  <section class="page-container">
     <h1>{{ props.page }}</h1>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">

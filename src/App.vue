@@ -1,23 +1,15 @@
 <template>
-  <div class="scroll-container">
-    <ScrollPage v-for="page in pages" :page="page" :key="page" />
-  </div>
+  <div class="page-container"><ScrollContainer /></div>
 </template>
 
 <script setup lang="ts">
-import ScrollPage from "./components/ScrollPage.vue";
-
-const pages: string[] = ["page 1", "page 2", "page 3"];
-
-// this probably shouldnt be in app - extract out later
+import ScrollContainer from "./components/ScrollContainer.vue";
 </script>
 
 <style scoped>
-.scroll-container {
-  width: 100%;
+.page-container {
   height: 100%;
-  border: 1px solid red;
-  overflow-x: auto;
-  scroll-snap-type: y mandatory;
+  width: 100%;
+  border: 1px solid yellow;
 }
 </style>
