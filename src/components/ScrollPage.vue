@@ -17,5 +17,6 @@ const props = defineProps<{
   height: 100vh;
   border: 1px dashed blue;
   width: 100%;
+  scroll-snap-align: start;
 }
 </style>
