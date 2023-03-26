@@ -1,5 +1,22 @@
 <template>
-  <section class="page-container">
+  <section
+    class="page-container"
+    v-if="props.page === 'page 1'"
+    :style="{
+      'background-image': `linear-gradient(${props.theme['secondary-background-color']}, ${props.theme['primary-background-color']})`,
+      color: props.theme['font-color'],
+    }"
+  >
+    <h1>{{ props.page }}</h1>
+  </section>
+  <section
+    class="page-container"
+    v-else
+    :style="{
+      'background-color': props.theme['primary-background-color'],
+      color: props.theme['font-color'],
+    }"
+  >
     <h1>{{ props.page }}</h1>
   </section>
 </template>
@@ -9,6 +26,7 @@ import { defineProps } from "vue";
 
 const props = defineProps<{
   page: string;
+  theme: object;
 }>();
 </script>
 
