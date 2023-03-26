@@ -11,7 +11,8 @@
     "format:check": "pnpm prettier --check .",
     "format:fix": "pnpm prettier --write .",
     "lint:check": "pnpm eslint . --ext .vue --ext .ts",
-    "lint:fix": "pnpm eslint . --ext .vue --ext .ts --fix"
+    "lint:fix": "pnpm eslint . --ext .vue --ext .ts --fix",
+    "cypress:open": "pnpm cypress open"
   },
   "dependencies": {
     "vue": "^3.2.47"
@@ -22,6 +23,7 @@
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
     "@vitejs/plugin-vue": "^4.1.0",
+    "cypress": "^12.8.1",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-vue": "^9.10.0",
