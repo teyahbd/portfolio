@@ -23,10 +23,11 @@
 
 <script setup lang="ts">
 import { defineProps } from "vue";
+import { Theme } from "../store/theme";
 
 const props = defineProps<{
   page: string;
-  theme: object;
+  theme: Theme;
 }>();
 </script>
 
