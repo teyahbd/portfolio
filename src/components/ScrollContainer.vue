@@ -1,20 +1,13 @@
 <template>
   <main class="scroll-container">
-    <ScrollPage
-      v-for="page in pages"
-      :page="page"
-      :key="page"
-      :theme="themeStore.currentTheme"
-    />
+    <ScrollPage v-for="page in pages" :page="page" :key="page" />
   </main>
 </template>
 
 <script setup lang="ts">
 import ScrollPage from "./ScrollPage.vue";
-import { useThemeStore } from "../store/theme";
 
 const pages: string[] = ["page 1", "page 2", "page 3"];
-const themeStore = useThemeStore();
 </script>
 
 <style scoped>
@@ -26,7 +19,6 @@ const themeStore = useThemeStore();
   flex-direction: column;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
-  color: #ff94b9;
 }
 
 @media only screen and (max-width: 768px) {
