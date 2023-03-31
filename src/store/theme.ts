@@ -13,7 +13,7 @@ export const useThemeStore = defineStore("theme", () => {
     "primary-background-color": "#000000",
   };
   const light: Theme = {
-    "font-color": "black",
+    "font-color": "white",
     "primary-background-color": "#ff94b9",
   };
 
