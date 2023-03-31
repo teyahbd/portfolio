@@ -26,6 +26,7 @@ const themeStore = useThemeStore();
   flex-direction: column;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
+  color: #ff94b9;
 }
 
 @media only screen and (max-width: 768px) {

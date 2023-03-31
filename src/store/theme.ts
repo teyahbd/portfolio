@@ -4,20 +4,17 @@ import { ref, computed, ComputedRef } from "vue";
 export interface Theme {
   "font-color": string;
   "primary-background-color": string;
-  "secondary-background-color": string;
 }
 
 export const useThemeStore = defineStore("theme", () => {
   // --- AVAILABLE THEMES ---
   const dark: Theme = {
     "font-color": "white",
-    "primary-background-color": "rgb(10, 0, 97)",
-    "secondary-background-color": "black",
+    "primary-background-color": "#000000",
   };
   const light: Theme = {
     "font-color": "black",
-    "primary-background-color": "white",
-    "secondary-background-color": "skyblue",
+    "primary-background-color": "#ff94b9",
   };
 
   const userDefaultTheme = ref(

@@ -1,17 +1,6 @@
 <template>
   <section
     class="page-container"
-    v-if="props.page === 'page 1'"
-    :style="{
-      'background-image': firstPageBackground,
-      color: props.theme['font-color'],
-    }"
-  >
-    <h1>{{ props.page }}</h1>
-  </section>
-  <section
-    class="page-container"
-    v-else
     :style="{
       'background-color': props.theme['primary-background-color'],
       color: props.theme['font-color'],
@@ -29,32 +18,6 @@ const props = defineProps<{
   page: string;
   theme: Theme;
 }>();
-
-function setFirstPageBackground() {
-  let backgroundStr = "linear-gradient(";
-
-  if (screen.width <= 768) backgroundStr += ".25turn, ";
-
-  backgroundStr += `${props.theme["secondary-background-color"]}, ${props.theme["primary-background-color"]})`;
-
-  return backgroundStr;
-}
-
-const firstPageBackground = ref(setFirstPageBackground());
-
-onMounted(() => {
-  window.addEventListener(
-    "resize",
-    () => (firstPageBackground.value = setFirstPageBackground())
-  );
-});
-
-onUnmounted(() => {
-  window.removeEventListener(
-    "resize",
-    () => (firstPageBackground.value = setFirstPageBackground())
-  );
-});
 </script>
 
 <style scoped>
