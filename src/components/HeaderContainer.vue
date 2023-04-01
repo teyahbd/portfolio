@@ -2,10 +2,13 @@
   <header>
     <h1 class="web">TEYAH BRENNEN-DAVIES</h1>
     <h1 class="mobile">TEYAH BD</h1>
+    <ToggleSelector />
   </header>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ToggleSelector from "./ToggleSelector.vue";
+</script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Changa+One&display=swap");
@@ -14,6 +17,7 @@ header {
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 1rem;
 }
 
