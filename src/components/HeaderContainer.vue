@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1 class="web">TEYAH BRENNEN-DAVIES</h1>
+    <h1 class="web">{{ pageStore.currentPageName.toUpperCase() }}</h1>
     <h1 class="mobile">TEYAH BD</h1>
     <div class="buttons">
       <SocialButtons />
@@ -12,6 +12,9 @@
 <script setup lang="ts">
 import SocialButtons from "./SocialButtons.vue";
 import ToggleSelector from "./ToggleSelector.vue";
+import { usePageStore } from "../store/page";
+
+const pageStore = usePageStore();
 </script>
 
 <style scoped>
