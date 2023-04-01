@@ -12,24 +12,33 @@
 <script setup lang="ts">
 import ScrollPage from "./ScrollPage.vue";
 import { usePageStore } from "../store/page";
+import { computed } from "vue";
 
 const pageStore = usePageStore();
 
 const pages: string[] = ["page 1", "page 2", "page 3"];
 
-const pageHeights = [0, 872, 1744];
+const scrollPageHeight = computed(() => Math.floor(window.innerHeight * 0.9));
 
-console.log(document.getElementById("ScrollPage")?.style.height);
+const pageHeights = computed(() => [
+  0,
+  scrollPageHeight.value,
+  scrollPageHeight.value * 2,
+]);
+
+console.log(pageHeights.value[2]);
 
 function handleScroll() {
   const currentPosition =
     document.getElementsByClassName("scroll-container")[0].scrollTop;
 
-  if (currentPosition === pageHeights[0]) {
+  // make this better later
+
+  if (currentPosition < pageHeights.value[1]) {
     pageStore.updatePage(0);
-  } else if (currentPosition === pageHeights[1]) {
+  } else if (currentPosition < pageHeights.value[2]) {
     pageStore.updatePage(1);
-  } else if (currentPosition === pageHeights[2]) {
+  } else if (currentPosition >= pageHeights.value[2]) {
     pageStore.updatePage(2);
   }
 }
