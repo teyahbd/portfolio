@@ -1,5 +1,10 @@
 <template>
-  <input type="checkbox" @change="onChange" />
+  <input
+    type="checkbox"
+    id="checkbox"
+    @change="onChange"
+    :checked="themeStore.currentThemeName === 'dark'"
+  />
 </template>
 
 <script setup lang="ts">

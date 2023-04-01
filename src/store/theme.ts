@@ -35,5 +35,5 @@ export const useThemeStore = defineStore("theme", () => {
       currentThemeName.value === "dark" ? "light" : "dark";
   }
 
-  return { currentTheme, changeTheme };
+  return { currentTheme, changeTheme, currentThemeName };
 });
