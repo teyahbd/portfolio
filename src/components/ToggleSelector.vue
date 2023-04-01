@@ -1,7 +1,6 @@
 <template>
   <input
     type="checkbox"
-    id="checkbox"
     @change="onChange"
     :checked="themeStore.currentThemeName === 'dark'"
   />

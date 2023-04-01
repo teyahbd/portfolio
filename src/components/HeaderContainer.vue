@@ -2,11 +2,15 @@
   <header>
     <h1 class="web">TEYAH BRENNEN-DAVIES</h1>
     <h1 class="mobile">TEYAH BD</h1>
-    <ToggleSelector />
+    <div class="buttons">
+      <SocialButtons />
+      <ToggleSelector />
+    </div>
   </header>
 </template>
 
 <script setup lang="ts">
+import SocialButtons from "./SocialButtons.vue";
 import ToggleSelector from "./ToggleSelector.vue";
 </script>
 
@@ -38,6 +42,13 @@ h1:focus {
 
 .mobile {
   display: none;
+}
+
+.buttons {
+  display: flex;
+  width: 10vw;
+  height: 100%;
+  justify-content: space-evenly;
 }
 
 @media only screen and (max-width: 768px) {
