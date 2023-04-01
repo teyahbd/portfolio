@@ -27,14 +27,14 @@ const themeStore = useThemeStore();
 .page-container {
   height: 100%;
   width: 100%;
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
 }
 
 .scroll {
-  height: 90vh;
+  height: 88vh;
 }
 
 .header {
-  height: 10vh;
+  height: 12vh;
 }
 </style>

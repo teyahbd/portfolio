@@ -14,7 +14,7 @@ const pages: string[] = ["page 1", "page 2", "page 3"];
 .scroll-container {
   width: 100%;
   height: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   overflow-y: auto;
