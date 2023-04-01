@@ -32,7 +32,7 @@ function handleScroll() {
   const currentPosition =
     document.getElementsByClassName("scroll-container")[0].scrollTop;
 
-  // make this better later
+  // make this better later e.g. only update value if it's different to value in store
 
   if (currentPosition < pageHeights.value[1]) {
     pageStore.updatePage(0);
