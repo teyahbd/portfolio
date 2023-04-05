@@ -19,3 +19,5 @@
 - [ ] Look into accessibility and use checks
 - [ ] Theme ideas: sun blue vs night starts, beach, hearts
 - [ ] Try parallax background
+- [ ] Error and loading states
+- [ ] Have a fun skills matrix type of page

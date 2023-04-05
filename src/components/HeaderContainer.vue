@@ -26,6 +26,8 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  background-color: rgba(255, 204, 0, 0.866);
 }
 
 h1 {
@@ -52,6 +54,7 @@ h1:focus {
   width: 10vw;
   height: 100%;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 @media only screen and (max-width: 768px) {
