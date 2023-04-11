@@ -3,7 +3,7 @@ import { ref } from "vue";
 
 export const usePageStore = defineStore("page", () => {
   const webPages = ["Teyah Brennen-Davies", "My Projects", "My Blog"];
-  const mobilePages = ["Teyah BD", "My Projects", "My Blog"];
+  const mobilePages = ["Teyah BD", "Projects", "Blog"];
 
   const currentWebPageName = ref(webPages[0]);
   const currentMobilePageName = ref(mobilePages[0]);
