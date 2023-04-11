@@ -35,18 +35,23 @@ const pageWidths = computed(() => [
 ]);
 
 function handleScroll() {
-  const currentPosition =
-    document.getElementsByClassName("scroll-container")[0].scrollTop;
+  const isMobile = window.innerWidth <= 768;
 
-  // make this better later e.g. only update value if it's different to value in store
+  const currentPosition = isMobile
+    ? document.getElementsByClassName("scroll-container")[0].scrollLeft
+    : document.getElementsByClassName("scroll-container")[0].scrollTop;
 
-  if (currentPosition < pageHeights.value[1]) {
+  const pageSizes = isMobile ? pageWidths.value : pageHeights.value;
+
+  if (currentPosition < pageSizes[1]) {
     pageStore.updatePage(0);
-  } else if (currentPosition < pageHeights.value[2]) {
+  } else if (currentPosition < pageSizes[2]) {
     pageStore.updatePage(1);
-  } else if (currentPosition >= pageHeights.value[2]) {
+  } else if (currentPosition >= pageSizes[2]) {
     pageStore.updatePage(2);
   }
+
+  // make this better later e.g. only update value if it's different to value in store
 }
 </script>
 

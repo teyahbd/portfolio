@@ -1,7 +1,7 @@
 <template>
   <header>
-    <h1 class="web">{{ pageStore.currentPageName.toUpperCase() }}</h1>
-    <h1 class="mobile">TEYAH BD</h1>
+    <h1 class="web">{{ pageStore.currentWebPageName.toUpperCase() }}</h1>
+    <h1 class="mobile">{{ pageStore.currentMobilePageName.toUpperCase() }}</h1>
     <div class="buttons">
       <SocialButtons />
       <ToggleSelector />
