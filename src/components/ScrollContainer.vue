@@ -38,10 +38,13 @@ const pageWidths = computed(() => [
 ]);
 
 // turn into hook
-let throttleTimer;
-const throttle = (callback, time) => {
+let throttleTimer: boolean;
+
+const throttle = (callback: () => void, time: number) => {
   if (throttleTimer) return;
+
   throttleTimer = true;
+
   setTimeout(() => {
     callback();
     throttleTimer = false;
@@ -58,17 +61,12 @@ const handleScroll = () => {
   const pageSizes = isMobile ? pageWidths.value : pageHeights.value;
 
   if (currentPosition < pageSizes[1]) {
-    console.log("scroll");
     pageStore.updatePage(0);
   } else if (currentPosition < pageSizes[2]) {
-    console.log("scroll");
     pageStore.updatePage(1);
   } else if (currentPosition >= pageSizes[2]) {
-    console.log("scroll");
     pageStore.updatePage(2);
   }
-
-  // make this better later e.g. only update value if it's different to value in store
 };
 </script>
 
