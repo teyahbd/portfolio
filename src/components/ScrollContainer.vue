@@ -22,11 +22,17 @@ const scrollPageHeight = computed(() => Math.floor(window.innerHeight * 0.9));
 
 const pageHeights = computed(() => [
   0,
-  scrollPageHeight.value,
-  scrollPageHeight.value * 2,
+  scrollPageHeight.value / 2,
+  scrollPageHeight.value * 1.5,
 ]);
 
-console.log(pageHeights.value[2]);
+const scrollPageWidth = computed(() => Math.floor(window.innerWidth));
+
+const pageWidths = computed(() => [
+  0,
+  scrollPageWidth.value / 2,
+  scrollPageWidth.value * 1.5,
+]);
 
 function handleScroll() {
   const currentPosition =
