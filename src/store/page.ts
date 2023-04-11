@@ -2,12 +2,16 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 export const usePageStore = defineStore("page", () => {
-  const pages = ["Teyah Brennen-Davies", "My Projects", "My Blog"];
-  const currentPageName = ref(pages[0]);
+  const webPages = ["Teyah Brennen-Davies", "My Projects", "My Blog"];
+  const mobilePages = ["Teyah BD", "Projects", "Blog"];
+
+  const currentWebPageName = ref(webPages[0]);
+  const currentMobilePageName = ref(mobilePages[0]);
 
   function updatePage(index: number) {
-    currentPageName.value = pages[index];
+    currentWebPageName.value = webPages[index];
+    currentMobilePageName.value = mobilePages[index];
   }
 
-  return { currentPageName, updatePage };
+  return { currentWebPageName, currentMobilePageName, updatePage };
 });

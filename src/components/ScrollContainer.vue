@@ -1,5 +1,8 @@
 <template>
-  <main class="scroll-container" v-on:scroll="handleScroll">
+  <main
+    class="scroll-container"
+    v-on:scroll="() => throttle(handleScroll, 500)"
+  >
     <ScrollPage
       v-for="page in pages"
       :page="page"
@@ -22,26 +25,49 @@ const scrollPageHeight = computed(() => Math.floor(window.innerHeight * 0.9));
 
 const pageHeights = computed(() => [
   0,
-  scrollPageHeight.value,
-  scrollPageHeight.value * 2,
+  scrollPageHeight.value / 2,
+  scrollPageHeight.value * 1.5,
 ]);
 
-console.log(pageHeights.value[2]);
+const scrollPageWidth = computed(() => Math.floor(window.innerWidth));
 
-function handleScroll() {
-  const currentPosition =
-    document.getElementsByClassName("scroll-container")[0].scrollTop;
+const pageWidths = computed(() => [
+  0,
+  scrollPageWidth.value / 2,
+  scrollPageWidth.value * 1.5,
+]);
 
-  // make this better later e.g. only update value if it's different to value in store
+// turn into hook
+let throttleTimer: boolean;
 
-  if (currentPosition < pageHeights.value[1]) {
+const throttle = (callback: () => void, time: number) => {
+  if (throttleTimer) return;
+
+  throttleTimer = true;
+
+  setTimeout(() => {
+    callback();
+    throttleTimer = false;
+  }, time);
+};
+
+const handleScroll = () => {
+  const isMobile = window.innerWidth <= 768;
+
+  const currentPosition = isMobile
+    ? document.getElementsByClassName("scroll-container")[0].scrollLeft
+    : document.getElementsByClassName("scroll-container")[0].scrollTop;
+
+  const pageSizes = isMobile ? pageWidths.value : pageHeights.value;
+
+  if (currentPosition < pageSizes[1]) {
     pageStore.updatePage(0);
-  } else if (currentPosition < pageHeights.value[2]) {
+  } else if (currentPosition < pageSizes[2]) {
     pageStore.updatePage(1);
-  } else if (currentPosition >= pageHeights.value[2]) {
+  } else if (currentPosition >= pageSizes[2]) {
     pageStore.updatePage(2);
   }
-}
+};
 </script>
 
 <style scoped>

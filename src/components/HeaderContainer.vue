@@ -1,7 +1,7 @@
 <template>
   <header>
-    <h1 class="web">{{ pageStore.currentPageName.toUpperCase() }}</h1>
-    <h1 class="mobile">TEYAH BD</h1>
+    <h1 class="web">{{ pageStore.currentWebPageName.toUpperCase() }}</h1>
+    <h1 class="mobile">{{ pageStore.currentMobilePageName.toUpperCase() }}</h1>
     <div class="buttons">
       <SocialButtons />
       <ToggleSelector />
@@ -49,9 +49,11 @@ h1:focus {
 
 .buttons {
   display: flex;
-  width: 10vw;
+  width: fit-content;
   height: 100%;
   justify-content: space-evenly;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 @media only screen and (max-width: 768px) {

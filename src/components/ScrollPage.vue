@@ -14,7 +14,7 @@ const props = defineProps<{
 
 <style scoped>
 .page-container {
-  min-height: 90vh;
+  min-height: 88vh;
   /* border: 1px dashed blue; */
   min-width: 100vw;
   scroll-snap-align: start;
