@@ -4,7 +4,7 @@
       {{ pageStore.currentWebPageName.toUpperCase() }}
     </h1>
     <h1 class="mobile-header-text" v-if="props.isMobile">
-      {{ pageStore.currentMobilePageName.toUpperCase() }}
+      {{ props.mobilePageHeader }}
     </h1>
     <div class="buttons-and-links">
       <SocialButtons />
@@ -22,6 +22,7 @@ const pageStore = usePageStore();
 
 const props = defineProps<{
   isMobile: boolean;
+  mobilePageHeader?: string;
 }>();
 </script>
 
@@ -34,7 +35,6 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  padding-bottom: 0;
 }
 
 h1 {

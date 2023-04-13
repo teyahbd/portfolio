@@ -24,7 +24,7 @@ const themeStore = useThemeStore();
 }
 
 .app-container {
-  height: 100%;
+  height: fit-content;
   width: 100%;
 }
 

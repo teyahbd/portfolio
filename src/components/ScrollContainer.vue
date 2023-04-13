@@ -3,18 +3,14 @@
     class="scroll-container"
     v-on:scroll="() => throttle(handleScroll, 500)"
   >
-    <WebScrollPage
-      v-for="page in pages"
-      :key="page"
-      :page="page"
-    ></WebScrollPage>
+    <PageComponent v-for="page in pages" :key="page" :isScrollPage="true" />
   </main>
 </template>
 
 <script setup lang="ts">
-import WebScrollPage from "./WebScrollPage.vue";
 import { usePageStore } from "../store/page";
 import { computed } from "vue";
+import PageComponent from "./PageComponent.vue";
 
 const pageStore = usePageStore();
 
