@@ -1,15 +1,12 @@
 <template>
-  <header v-if="!isMobile">
-    <h1>{{ pageStore.currentWebPageName.toUpperCase() }}</h1>
-
-    <div class="buttons">
-      <SocialButtons />
-      <ToggleSelector />
-    </div>
-  </header>
-  <header v-else>
-    <h1 class="mobile-header">TEYAH BD</h1>
-    <div class="mobile-buttons">
+  <header>
+    <h1 v-if="!props.isMobile">
+      {{ pageStore.currentWebPageName.toUpperCase() }}
+    </h1>
+    <h1 class="mobile-header-text" v-if="props.isMobile">
+      {{ pageStore.currentMobilePageName.toUpperCase() }}
+    </h1>
+    <div class="buttons-and-links">
       <SocialButtons />
       <ToggleSelector />
     </div>
@@ -32,11 +29,12 @@ const props = defineProps<{
 @import url("https://fonts.googleapis.com/css2?family=Changa+One&display=swap");
 header {
   width: 100%;
-  height: 100%;
+  height: fit-content;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+  padding-bottom: 0;
 }
 
 h1 {
@@ -44,31 +42,16 @@ h1 {
   font-size: 3.5rem;
   transition-duration: 0.3s;
 }
+.mobile-header-text {
+  font-size: 2rem;
+}
 
-/* h1:hover,
-h1:focus {
-  color: red;
-} */
-
-.buttons {
+.buttons-and-links {
   display: flex;
   width: fit-content;
   height: 100%;
   justify-content: space-evenly;
   align-items: center;
   gap: 1.5rem;
-}
-
-.mobile-buttons {
-  display: flex;
-  width: fit-content;
-  height: 100%;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 1rem;
-}
-
-.mobile-header {
-  font-size: 2.5rem;
 }
 </style>
