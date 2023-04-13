@@ -54,4 +54,10 @@ i {
 .linkedin-dark:hover {
   color: #00bbff;
 }
+
+@media only screen and (max-width: 768px) {
+  i {
+    font-size: 2rem;
+  }
+}
 </style>
