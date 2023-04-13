@@ -12,9 +12,9 @@
 </template>
 
 <script setup lang="ts">
-import ScrollContainer from "../components/ScrollContainer.vue";
+import ScrollContainer from "./ScrollContainer.vue";
 import { useThemeStore } from "../store/theme";
-import HeaderContainer from "../components/HeaderContainer.vue";
+import HeaderContainer from "./HeaderContainer.vue";
 const themeStore = useThemeStore();
 </script>
 
