@@ -1,12 +1,11 @@
 <template>
-  <MainView class="web" :isMobile="false" /><MainView
-    class="mobile"
-    :isMobile="true"
-  />
+  <WebView class="web" />
+  <MobileView class="mobile" />
 </template>
 
 <script setup lang="ts">
-import MainView from "./components/MainView.vue";
+import MobileView from "./views/MobileView.vue";
+import WebView from "./views/WebView.vue";
 </script>
 
 <style scoped>
@@ -22,7 +21,6 @@ import MainView from "./components/MainView.vue";
   .web {
     display: none;
   }
-
   .mobile {
     display: block;
   }
