@@ -4,7 +4,7 @@
     v-on:scroll="() => throttle(handleScroll, 500)"
   >
     <ScrollPage
-      v-for="page in pages"
+      v-for="page in pageStore.webPages"
       :page="page"
       :key="page"
       id="ScrollPage"
@@ -19,14 +19,14 @@ import { computed } from "vue";
 
 const pageStore = usePageStore();
 
-const pages: string[] = ["page 1", "page 2", "page 3"];
-
 const scrollPageHeight = computed(() => Math.floor(window.innerHeight * 0.9));
 
 const pageHeights = computed(() => [
   0,
   scrollPageHeight.value / 2,
   scrollPageHeight.value * 1.5,
+  scrollPageHeight.value * 2.5,
+  scrollPageHeight.value * 3.5,
 ]);
 
 const scrollPageWidth = computed(() => Math.floor(window.innerWidth));
@@ -64,8 +64,12 @@ const handleScroll = () => {
     pageStore.updatePage(0);
   } else if (currentPosition < pageSizes[2]) {
     pageStore.updatePage(1);
-  } else if (currentPosition >= pageSizes[2]) {
+  } else if (currentPosition < pageSizes[3]) {
     pageStore.updatePage(2);
+  } else if (currentPosition < pageSizes[4]) {
+    pageStore.updatePage(3);
+  } else if (currentPosition >= pageSizes[4]) {
+    pageStore.updatePage(4);
   }
 };
 </script>
@@ -78,7 +82,7 @@ const handleScroll = () => {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  scroll-snap-type: y mandatory;
+  /* scroll-snap-type: y mandatory; */
 }
 
 @media only screen and (max-width: 768px) {
