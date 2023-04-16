@@ -3,17 +3,17 @@
     class="scroll-container"
     v-on:scroll="() => throttle(handleScroll, 500)"
   >
-    <ScrollPage
+    <div
       v-for="page in pageStore.webPages"
       :page="page"
       :key="page"
       id="ScrollPage"
-    />
+      class="page-container"
+    ></div>
   </main>
 </template>
 
 <script setup lang="ts">
-import ScrollPage from "./ScrollPage.vue";
 import { usePageStore } from "../store/page";
 import { computed } from "vue";
 
@@ -27,14 +27,6 @@ const pageHeights = computed(() => [
   scrollPageHeight.value * 1.5,
   scrollPageHeight.value * 2.5,
   scrollPageHeight.value * 3.5,
-]);
-
-const scrollPageWidth = computed(() => Math.floor(window.innerWidth));
-
-const pageWidths = computed(() => [
-  0,
-  scrollPageWidth.value / 2,
-  scrollPageWidth.value * 1.5,
 ]);
 
 // turn into hook
@@ -52,13 +44,10 @@ const throttle = (callback: () => void, time: number) => {
 };
 
 const handleScroll = () => {
-  const isMobile = window.innerWidth <= 768;
+  const currentPosition =
+    document.getElementsByClassName("scroll-container")[0].scrollTop;
 
-  const currentPosition = isMobile
-    ? document.getElementsByClassName("scroll-container")[0].scrollLeft
-    : document.getElementsByClassName("scroll-container")[0].scrollTop;
-
-  const pageSizes = isMobile ? pageWidths.value : pageHeights.value;
+  const pageSizes = pageHeights.value;
 
   if (currentPosition < pageSizes[1]) {
     pageStore.updatePage(0);
@@ -85,11 +74,12 @@ const handleScroll = () => {
   /* scroll-snap-type: y mandatory; */
 }
 
-@media only screen and (max-width: 768px) {
-  .scroll-container {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    flex-direction: row;
-  }
+.page-container {
+  min-height: 88vh;
+  /* border: 1px dashed blue; */
+  min-width: 100vw;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  color: inherit;
 }
 </style>
