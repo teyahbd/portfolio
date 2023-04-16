@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import ScrollContainer from "./components/ScrollContainer.vue";
 import { useThemeStore } from "./store/theme";
-import HeaderContainer from "./components/HeaderContainer.vue";
+import HeaderContainer from "./components/Header/HeaderContainer.vue";
 
 const themeStore = useThemeStore();
 </script>

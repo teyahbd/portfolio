@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import SocialButtons from "./SocialButtons.vue";
 import ToggleSelector from "./ToggleSelector.vue";
-import { usePageStore } from "../store/page";
+import { usePageStore } from "../../store/page";
 
 const pageStore = usePageStore();
 </script>
