@@ -75,7 +75,7 @@ const handleScroll = () => {
 }
 
 .page-container {
-  min-height: 88vh;
+  min-height: 100vh;
   /* border: 1px dashed blue; */
   min-width: 100vw;
   scroll-snap-align: start;

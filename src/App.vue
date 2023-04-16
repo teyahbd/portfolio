@@ -6,12 +6,8 @@
       color: themeStore.currentTheme['font-color'],
     }"
   >
-    <div class="header">
-      <HeaderContainer />
-    </div>
-    <div class="scroll">
-      <ScrollContainer />
-    </div>
+    <HeaderContainer />
+    <ScrollContainer />
   </div>
 </template>
 
@@ -28,13 +24,5 @@ const themeStore = useThemeStore();
   height: 100%;
   width: 100%;
   /* border: 1px solid yellow; */
-}
-
-.scroll {
-  height: 88vh;
-}
-
-.header {
-  height: 12vh;
 }
 </style>

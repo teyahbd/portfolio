@@ -26,6 +26,8 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+  position: absolute;
+  height: 10vh;
 }
 
 h1 {
@@ -58,13 +60,16 @@ h1:focus {
 
 @media only screen and (max-width: 768px) {
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
   .web {
     display: none;
   }
   .mobile {
     display: block;
+  }
+  .buttons {
+    gap: 1rem;
   }
 }
 </style>
