@@ -30,13 +30,13 @@ const scrollPageHeight = computed(() => Math.floor(window.innerHeight * 0.9));
 const pageHeights = computed(() => [
   0,
   scrollPageHeight.value / 2 +
-    pageStore.mobilePageHeightRatios[0] * scrollPageHeight.value,
+    (pageStore.mobilePageHeightRatios[0] - 1) * scrollPageHeight.value,
   scrollPageHeight.value * 1.5 +
-    pageStore.mobilePageHeightRatios[1] * scrollPageHeight.value,
+    (pageStore.mobilePageHeightRatios[1] - 1) * scrollPageHeight.value,
   scrollPageHeight.value * 2.5 +
-    pageStore.mobilePageHeightRatios[2] * scrollPageHeight.value,
+    (pageStore.mobilePageHeightRatios[2] - 1) * scrollPageHeight.value,
   scrollPageHeight.value * 3.5 +
-    pageStore.mobilePageHeightRatios[3] * scrollPageHeight.value,
+    (pageStore.mobilePageHeightRatios[3] - 1) * scrollPageHeight.value,
 ]);
 
 // turn into hook
@@ -83,5 +83,9 @@ const handleScroll = () => {
   flex-direction: column;
   overflow-y: auto;
   /* scroll-snap-type: y mandatory; */
+}
+
+PageContainer {
+  border: 1px solid red;
 }
 </style>
