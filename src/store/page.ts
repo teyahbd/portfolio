@@ -17,6 +17,8 @@ export const usePageStore = defineStore("page", () => {
     "Get In Touch",
   ];
 
+  const mobilePageHeightRatios = [1, 1, 1, 4, 1];
+
   const currentWebPageName = ref(webPages[0]);
   const currentMobilePageName = ref(mobilePages[0]);
 
@@ -25,5 +27,11 @@ export const usePageStore = defineStore("page", () => {
     currentMobilePageName.value = mobilePages[index];
   }
 
-  return { currentWebPageName, currentMobilePageName, updatePage, webPages };
+  return {
+    currentWebPageName,
+    currentMobilePageName,
+    updatePage,
+    webPages,
+    mobilePageHeightRatios,
+  };
 });

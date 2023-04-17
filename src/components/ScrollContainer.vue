@@ -3,13 +3,19 @@
     class="scroll-container"
     v-on:scroll="() => throttle(handleScroll, 500)"
   >
-    <div
-      v-for="page in pageStore.webPages"
-      :page="page"
-      :key="page"
-      id="ScrollPage"
-      class="page-container"
-    ></div>
+    <PageContainer :style="{ minHeight: '100vh' }"><h1>Home</h1></PageContainer>
+    <PageContainer :style="{ minHeight: '100vh' }"
+      ><h1>About</h1></PageContainer
+    >
+    <PageContainer :style="{ minHeight: '100vh' }"
+      ><h1>Stack</h1></PageContainer
+    >
+    <PageContainer :style="{ minHeight: '400vh' }"
+      ><h1>Projects</h1></PageContainer
+    >
+    <PageContainer :style="{ minHeight: '100vh' }"
+      ><h1>Contact</h1></PageContainer
+    >
   </main>
 </template>
 
@@ -23,10 +29,14 @@ const scrollPageHeight = computed(() => Math.floor(window.innerHeight * 0.9));
 
 const pageHeights = computed(() => [
   0,
-  scrollPageHeight.value / 2,
-  scrollPageHeight.value * 1.5,
-  scrollPageHeight.value * 2.5,
-  scrollPageHeight.value * 3.5,
+  scrollPageHeight.value / 2 +
+    pageStore.mobilePageHeightRatios[0] * scrollPageHeight.value,
+  scrollPageHeight.value * 1.5 +
+    pageStore.mobilePageHeightRatios[1] * scrollPageHeight.value,
+  scrollPageHeight.value * 2.5 +
+    pageStore.mobilePageHeightRatios[2] * scrollPageHeight.value,
+  scrollPageHeight.value * 3.5 +
+    pageStore.mobilePageHeightRatios[3] * scrollPageHeight.value,
 ]);
 
 // turn into hook
@@ -49,6 +59,7 @@ const handleScroll = () => {
 
   const pageSizes = pageHeights.value;
 
+  // only update if not already value
   if (currentPosition < pageSizes[1]) {
     pageStore.updatePage(0);
   } else if (currentPosition < pageSizes[2]) {
@@ -72,14 +83,5 @@ const handleScroll = () => {
   flex-direction: column;
   overflow-y: auto;
   /* scroll-snap-type: y mandatory; */
-}
-
-.page-container {
-  min-height: 100vh;
-  /* border: 1px dashed blue; */
-  min-width: 100vw;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  color: inherit;
 }
 </style>
