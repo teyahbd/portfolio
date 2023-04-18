@@ -3,25 +3,37 @@
     class="scroll-container"
     v-on:scroll="() => throttle(handleScroll, 500)"
   >
-    <PageContainer :style="{ minHeight: '100vh' }"><h1>Home</h1></PageContainer>
-    <PageContainer :style="{ minHeight: '100vh' }"
-      ><h1>About</h1></PageContainer
-    >
-    <PageContainer :style="{ minHeight: '100vh' }"
-      ><h1>Stack</h1></PageContainer
-    >
-    <PageContainer :style="{ minHeight: '400vh' }"
-      ><h1>Projects</h1></PageContainer
-    >
-    <PageContainer :style="{ minHeight: '100vh' }"
-      ><h1>Contact</h1></PageContainer
-    >
+    <PageContainer><h1>Home</h1></PageContainer>
+    <!-- for web have stack and about me on same page -->
+    <PageContainer><h1>About</h1></PageContainer>
+    <PageContainer><StackPage></StackPage></PageContainer>
+
+    <PageContainer :style="{ overflowX: 'auto' }"
+      ><h2>Here are some of the projects I've worked on.</h2>
+      <div
+        :style="{
+          display: 'flex',
+          overflowX: 'scroll',
+          width: 'max-content',
+          overflowY: 'hidden',
+        }"
+      >
+        <ProjectCard></ProjectCard>
+        <ProjectCard></ProjectCard>
+        <ProjectCard></ProjectCard>
+        <ProjectCard></ProjectCard>
+        <ProjectCard></ProjectCard>
+      </div>
+    </PageContainer>
+    <PageContainer><h1>Contact</h1></PageContainer>
   </main>
 </template>
 
 <script setup lang="ts">
 import { usePageStore } from "../store/page";
 import { computed } from "vue";
+import StackPage from "./StackPage.vue";
+import ProjectCard from "./ProjectCard.vue";
 
 const pageStore = usePageStore();
 
@@ -82,10 +94,18 @@ const handleScroll = () => {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  /* scroll-snap-type: y mandatory; */
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
 }
 
 PageContainer {
-  border: 1px solid red;
+  min-height: 100vh;
+  /* border: 1px dashed blue; */
+  min-width: 100vw;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  color: inherit;
+  padding-top: 10vh;
+  overflow-x: auto;
 }
 </style>

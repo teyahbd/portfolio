@@ -28,6 +28,7 @@ header {
   padding: 1rem;
   position: absolute;
   height: 10vh;
+  background-color: inherit;
 }
 
 h1 {
