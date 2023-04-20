@@ -2,8 +2,22 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 export const usePageStore = defineStore("page", () => {
-  const webPages = ["Teyah Brennen-Davies", "My Projects", "My Blog"];
-  const mobilePages = ["Teyah BD", "Projects", "Blog"];
+  const webPages = [
+    "Teyah Brennen-Davies",
+    "About Me",
+    "Stack & Skills",
+    "My Projects",
+    "Get In Touch",
+  ];
+  const mobilePages = [
+    "Teyah BD",
+    "About Me",
+    "Stack & Skills",
+    "My Projects",
+    "Get In Touch",
+  ];
+
+  const mobilePageHeightRatios = [1, 1, 1, 1, 1];
 
   const currentWebPageName = ref(webPages[0]);
   const currentMobilePageName = ref(mobilePages[0]);
@@ -13,5 +27,11 @@ export const usePageStore = defineStore("page", () => {
     currentMobilePageName.value = mobilePages[index];
   }
 
-  return { currentWebPageName, currentMobilePageName, updatePage };
+  return {
+    currentWebPageName,
+    currentMobilePageName,
+    updatePage,
+    webPages,
+    mobilePageHeightRatios,
+  };
 });
